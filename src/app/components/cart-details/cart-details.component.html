@@ -21,19 +21,23 @@
                                 <label>Quantity:</label> 
                                 <div class="row no-gutters">
                                     <div class="col">
-                                        <button class="btn btn-primary btn-sm">
+                                        <button (click)="increamentQuantity(tempCartItem)" class="btn btn-primary btn-sm">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
                                     <div class="col ml-4 mr-2">
                                         {{tempCartItem.quantity}}
                                     </div>
-                                    <div>
-                                        <button class="btn btn-primary btn-sm">
+                                    <div class="col">
+                                        <button (click)="decreamentQuantity(tempCartItem)" class="btn btn-primary btn-sm">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </div>
+                                    <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">
+                                        <i style="color: rgb(255, 0, 51);"  class="fa fa-times"></i>
+                                    </button>
                                     <div class="col-8"></div>
+                                    
                                 </div>
                             </div> 
                 
