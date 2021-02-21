@@ -34,14 +34,17 @@
                                         </button>
                                     </div>
                                     <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">
-                                        <i style="color: rgb(255, 0, 51);"  class="fa fa-times"></i>
+                                      <!--  <i style="color: rgb(255, 0, 51);"  class="fa fa-times"></i> -->
+                                      <i class="fa fa-close" style="color:red"></i>
+                                       <!--<i class="fa fa-window-close-o" style="color:red"></i>
+                                       <i class="fa fa-times-circle-o" aria-hidden="true"></i> --> 
                                     </button>
                                     <div class="col-8"></div>
                                     
                                 </div>
                             </div> 
                 
-                            <p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD' }}</p>
+                            <p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'INR' }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -50,6 +53,7 @@
                             <p>Total Quantity: {{ totalQuantity }}</p>
                             <p *ngIf="totalPrice > 200">Shiping Free</p>
                             <p>Total Price: {{ totalPrice | currency: 'INR'}}</p>
+                            <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
                         </td>
                     </tr>
                 </table>
