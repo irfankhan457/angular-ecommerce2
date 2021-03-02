@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { CartItem } from '../common/cart-item';
 
 @Injectable({
@@ -9,10 +9,14 @@ export class CartService {
 
   cartItems: CartItem[] = [];
 
+  // subject dose not keep buffer previous event
+  // ReplaySubject has huge buffer keep all Previous event
+  // BehaviourSubject has a buffer of last event only
   // subject is a subclass of observable we can use subject to publish events in our code.
   // the event will be sent to all of the subscribers
-  totalPrice: Subject<number> = new Subject<number>();
-  totalQuantity: Subject<number> = new Subject<number>();
+  // BehaviorSubject to save data for even if the context is over and provide latest updated value
+  totalPrice: Subject<number> = new BehaviorSubject<number>(0);
+  totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
 
   constructor() { }
 
